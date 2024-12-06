@@ -38,20 +38,20 @@ class Tensor:
         self.data.fill(fill_value)
         
     @staticmethod
-    def empty(*shape):
-        return Tensor(np.empty(shape))
+    def empty(*shape, requires_grad=False, is_leaf=True, is_parameter=False):
+        return Tensor(np.empty(shape), requires_grad=requires_grad, is_leaf=is_leaf, is_parameter=is_parameter)
     
     @staticmethod
-    def zeros(*shape):
-        return Tensor(np.zeros(shape))
+    def zeros(*shape, requires_grad=False, is_leaf=True, is_parameter=False):
+        return Tensor(np.zeros(shape), requires_grad=requires_grad, is_leaf=is_leaf, is_parameter=is_parameter)
     
     @staticmethod
-    def ones(*shape):
-        return Tensor(np.ones(shape))
+    def ones(*shape, requires_grad=False, is_leaf=True, is_parameter=False):
+        return Tensor(np.ones(shape), requires_grad=requires_grad, is_leaf=is_leaf, is_parameter=is_parameter)
     
     @staticmethod
-    def randn(*shape):
-        return Tensor(np.random.randn(*shape))
+    def randn(*shape, requires_grad=False, is_leaf=True, is_parameter=False):
+        return Tensor(np.random.randn(*shape), requires_grad=requires_grad, is_leaf=is_leaf, is_parameter=is_parameter)
     
     # ------------------------------------------
     # init backpropogation

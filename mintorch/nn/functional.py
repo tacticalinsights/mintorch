@@ -246,8 +246,8 @@ def cross_entropy(predicted, target):
     exp_logits = logits.exp()
     probs = exp_logits / exp_logits.sum(axis=1, keepdims=True)
     loss = probs.log() * to_one_hot(target, num_classes)
-    cost = -log_probs.sum() / tensor.Tensor(batch_size)
-    return loss
+    cost = -loss.sum() / tensor.Tensor(batch_size)
+    return cost
     
 def to_one_hot(arr, num_classes):
     arr = arr.data.astype(int)
